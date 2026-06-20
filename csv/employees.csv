@@ -1,0 +1,11 @@
+﻿employee_name;email;hire_date;department;position
+Alex Johnson;alex.johnson@gamedev.com;15.03.2021;Programming;Senior Developer
+Emma Brown;emma.brown@gamedev.com;10.05.2022;Programming;Junior Developer
+Michael Lee;michael.lee@gamedev.com;01.09.2020;Design;Game Designer
+Sophia Davis;sophia.davis@gamedev.com;20.11.2021;Art;3D Artist
+Daniel Wilson;daniel.wilson@gamedev.com;12.04.2019;QA;QA Engineer
+Olivia Taylor;olivia.taylor@gamedev.com;18.01.2023;Marketing;Marketing Specialist
+James Anderson;james.anderson@gamedev.com;25.06.2020;Programming;Backend Developer
+Isabella Thomas;isabella.thomas@gamedev.com;14.02.2022;Art;Concept Artist
+Benjamin Moore;benjamin.moore@gamedev.com;08.08.2021;Design;Level Designer
+Charlotte Martin;charlotte.thomas@gamedev.com;05.12.2020;Management;Project Manager
