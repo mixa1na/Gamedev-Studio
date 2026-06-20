@@ -18,8 +18,12 @@ JOIN olap_dwh.Dim_Project p ON s.project_name = p.project_name
 JOIN olap_dwh.Fact_Project_Performance perf ON s.project_name = perf.project_name
 ORDER BY s.total_assigned_employees DESC;
 
-SELECT e.department_name, COUNT(ep.project_name) AS total_assignments
-FROM public.employees e
-JOIN public.employee_projects ep ON e.email = ep.email
-GROUP BY e.department_name
+SELECT
+    de.department_name,
+    COUNT(bep.project_name) AS total_assignments
+FROM olap_dwh.Dim_Employee de
+JOIN olap_dwh.Bridge_Employee_Project bep
+    ON de.employee_sk = bep.employee_sk
+WHERE de.is_current = TRUE
+GROUP BY de.department_name
 ORDER BY total_assignments DESC;
