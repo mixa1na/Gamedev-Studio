@@ -1,5 +1,17 @@
 BEGIN;
 
+TRUNCATE TABLE 
+    olap_dwh.Fact_Project_Performance, 
+    olap_dwh.Fact_Project_Staffing, 
+    olap_dwh.Bridge_Employee_Project, 
+    olap_dwh.Dim_Game, 
+    olap_dwh.Dim_Employee, 
+    olap_dwh.Dim_Project, 
+    olap_dwh.Dim_Project_Status, 
+    olap_dwh.Dim_Engine, 
+    olap_dwh.Dim_Genre 
+RESTART IDENTITY CASCADE;
+
 INSERT INTO olap_dwh.Dim_Genre (genre_name)
 SELECT genre_name
 FROM public.genres
