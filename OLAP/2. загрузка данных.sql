@@ -4,8 +4,7 @@ TRUNCATE TABLE
     olap_dwh.Fact_Project_Performance, 
     olap_dwh.Fact_Project_Staffing, 
     olap_dwh.Bridge_Employee_Project, 
-    olap_dwh.Dim_Game, 
-    olap_dwh.Dim_Employee, 
+    olap_dwh.Dim_Game,
     olap_dwh.Dim_Project, 
     olap_dwh.Dim_Project_Status, 
     olap_dwh.Dim_Engine, 
@@ -54,6 +53,19 @@ SELECT
     project_name
 FROM public.games
 ON CONFLICT (game_name) DO NOTHING;
+
+UPDATE olap_dwh.Dim_Employee de
+SET 
+    dwh_end_date = CURRENT_DATE,
+    is_current = FALSE
+FROM public.employees e
+WHERE de.email = e.email
+  AND de.is_current = TRUE
+  AND (
+      de.employee_name <> e.employee_name OR
+      de.department_name <> e.department_name OR
+      de.position_name <> e.position_name
+  );
 
 INSERT INTO olap_dwh.Dim_Employee (
     email,
